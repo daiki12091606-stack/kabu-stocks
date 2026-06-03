@@ -64,7 +64,7 @@ def main():
         msg = msg[:1900] + "\n…(省略)"
     req = urllib.request.Request(
         WEBHOOK, data=json.dumps({"content": msg}).encode("utf-8"),
-        headers={"Content-Type": "application/json"}, method="POST")
+        headers={"Content-Type": "application/json", "User-Agent": "kabu-stocks-bot/1.0 (+https://github.com/)"}, method="POST")
     with urllib.request.urlopen(req, timeout=20) as r:
         print("discord status:", r.status)
 
