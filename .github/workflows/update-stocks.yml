@@ -1,12 +1,11 @@
 name: update-stocks
 
 on:
-  workflow_dispatch:        # 手動実行（テスト用）
+  workflow_dispatch:
   schedule:
-    # GitHub の cron は UTC。日本時間(JST=UTC+9)の各通知の少し前に実行する。
-    - cron: "45 20 * * 0-4"   # JST 平日 朝 5:45 ごろ（朝6:10通知の前）
-    - cron: "35 2  * * 1-5"   # JST 平日 昼 11:35 ごろ（昼11:50通知の前）
-    - cron: "45 6  * * 1-5"   # JST 平日 夕 15:45 ごろ（夕16:07通知の前）
+    - cron: "45 20 * * 0-4"   # JST 平日 朝 5:45
+    - cron: "35 2  * * 1-5"   # JST 平日 昼 11:35
+    - cron: "45 6  * * 1-5"   # JST 平日 夕 15:45
 
 permissions:
   contents: write
@@ -23,14 +22,15 @@ jobs:
         run: pip install -r requirements.txt
       - name: Fetch stocks
         run: python fetch_stocks.py
-      - name: Notify Discord
+      - name: Notify Discord (判断支援)
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          HOLDINGS: ${{ secrets.HOLDINGS }}
         run: python notify_discord.py
-      - name: Commit stocks.json
+      - name: Commit data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add stocks.json
-          git diff --staged --quiet || git commit -m "update stocks.json [auto]"
+          git add stocks.json sectors.json
+          git diff --staged --quiet || git commit -m "update data [auto]"
           git push
