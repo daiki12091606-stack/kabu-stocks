@@ -109,14 +109,13 @@ def candidate_type(s):
 
 
 def action_for(pl, days, typ):
+    # 出口ルール: -5%即損切り / 利確トレーリング / 14日強制決済 / 10日+3%未満手仕舞い / 7日建値割れ撤退
     if pl <= -5: return "🛑即損切り(-5%)"
-    if days >= 21: return "⏰強制決済(21日)"
-    if days >= 14: return "🔍強制レビュー(14日)"
-    if days <= 3 and pl <= -3: return "🛑損切り(3日内-3%)"
-    if days >= 7 and pl <= 0: return "🛑撤退(7日建値割れ)"
-    if days >= 10 and pl < 3: return "💧手仕舞い検討(10日+3%未満)"
     if typ == "A" and pl >= 5: return "🎯トレーリング利確(高値-2%)"
     if typ == "B" and pl >= 10: return "🎯トレーリング(高値-2%)"
+    if days >= 14: return "⏰強制決済(14日経過)"
+    if days >= 10 and pl < 3: return "💧手仕舞い検討(10日+3%未満)"
+    if days >= 7 and pl <= 0: return "🛑撤退(7日建値割れ)"
     return "✅継続"
 
 
