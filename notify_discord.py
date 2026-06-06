@@ -183,8 +183,10 @@ def main():
         for s in cands[:8]:
             tag = "反発" if s["ct"] == "rebound" else "押し目"
             hot_mark = "★強" if s["secrank"] < 5 else ""
+            last = s["last"]
             blocks.append(f"・**{s['name']}({s['code']})** [{s['sec']}{hot_mark}] {tag} "
-                          f"RSI{s['rsi14']}/25線{s['dev_ma25_pct']:+.1f}%/出来高{(s.get('vol_ratio_pct') or 0):.0f}%")
+                          f"RSI{s['rsi14']}/25線{s['dev_ma25_pct']:+.1f}%/出来高{(s.get('vol_ratio_pct') or 0):.0f}%\n"
+                          f"　買値メド {yen(last)}（現値近辺）→ 目標売値 {yen(last*1.05)}(+5%) / 損切 {yen(last*0.92)}(-8%)")
         for s in cands[:3]:
             nn = news_one(s["name"] + " 株")
             if nn:
