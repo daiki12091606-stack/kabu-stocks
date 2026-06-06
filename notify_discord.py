@@ -1,19 +1,5 @@
 """
 株教授 - Discord判断支援デイリー（GitHub Actions用 / (b)方針：規律・判断支援＋セクター強度＋ニュース）
-=====================================================================
-バックテストの結論「機械的に勝てるエッジは無い／だが負け減らし・選別・規律は効く」を受け、
-“買い当て”をやめ、判断支援に作り替えた版。各セクションは best-effort（失敗しても他は出る）。
-
-出力(Discordの非公開チャンネルへプッシュ):
-  📊 日経平均(水準・トレンド)＋関連ニュース見出し
-  🔥 セクター強度ランク（テーマの勢い）
-  👀 注目候補（反発/押し目・テーマ強度順・買いシグナルでなく優先度）＋各ニュース見出し
-  ⚠️ 過熱・飛びつき警告（日立型）
-  🔵 保有の出口アラート（HOLDINGS secretから）
-  末尾: 最終判断はユーザーのニュース・テーマ＋規律。資金の土台は指数買い持ち。
-
-依存: stocks.json(fetch_stocks.pyが生成), DISCORD_WEBHOOK(secret), 任意でHOLDINGS(secret)
-      sectors.json(本スクリプトが.infoで生成・キャッシュ), yfinance(指数/セクター取得)
 """
 import json, os, datetime, urllib.request, urllib.parse, xml.etree.ElementTree as ET
 
@@ -31,7 +17,6 @@ def yen(x):
     return f"¥{int(round(x)):,}"
 
 
-# ---------- セクター（yfinance .info をキャッシュ） ----------
 def load_sectors(codes):
     cache = {}
     if os.path.exists(SECTORS_FILE):
@@ -56,13 +41,12 @@ def load_sectors(codes):
     return cache
 
 
-# ---------- 日経平均（指数の地合い） ----------
 def index_block():
     if yf is None:
         return None
     try:
         df = yf.download("^N225", period="6mo", interval="1d", progress=False, auto_adjust=True)
-        if isinstance(df.columns, type(df.columns)) and hasattr(df.columns, "get_level_values"):
+        if hasattr(df.columns, "get_level_values"):
             try:
                 df.columns = df.columns.get_level_values(0)
             except Exception:
@@ -77,7 +61,6 @@ def index_block():
         return None
 
 
-# ---------- ニュース（Google News RSS 見出し1件） ----------
 def news_one(query):
     try:
         q = urllib.parse.quote(query)
@@ -95,27 +78,32 @@ def news_one(query):
         return None
 
 
-# ---------- 候補判定（“買い当て”でなく優先度付けの素材） ----------
 def candidate_type(s):
     rsi = s["rsi14"]; dev = s["dev_ma25_pct"]; m1 = s["chg_1m_pct"]
     dev52 = s.get("dev_52w_high_pct", 0); vol = s.get("vol_ratio_pct") or 0; trend = s["ma25_trend"]
     if trend == "up" and (rsi > 70 or dev > 25):
         return "hot"
-    if dev52 <= -15 and 35 <= rsi <= 52 and vol >= 150:
-        return "rebound"     # 安値圏の反発（型B系）
+    if dev52 <= -15 and 35 <= rsi <= 52 and vol >= 180:
+        return "rebound"
     if trend == "up" and abs(dev) <= 5 and 40 <= rsi <= 65 and m1 <= 20:
-        return "pullback"    # 上昇中の押し目（型A系）
+        return "pullback"
     return "none"
 
 
 def action_for(pl, days, typ):
-    # 出口ルール: -5%即損切り / 利確トレーリング / 14日強制決済 / 10日+3%未満手仕舞い / 7日建値割れ撤退
-    if pl <= -5: return "🛑即損切り(-5%)"
-    if typ == "A" and pl >= 5: return "🎯トレーリング利確(高値-2%)"
-    if typ == "B" and pl >= 10: return "🎯トレーリング(高値-2%)"
-    if days >= 14: return "⏰強制決済(14日経過)"
-    if days >= 10 and pl < 3: return "💧手仕舞い検討(10日+3%未満)"
-    if days >= 7 and pl <= 0: return "🛑撤退(7日建値割れ)"
+    # 出口: 7日内+5%利確/-8%損切り, 8〜14日+3%利確/-5%損切り, 14日強制決済
+    if days >= 14:
+        return "⏰強制決済(14日経過)"
+    if days <= 7:
+        if pl >= 5:
+            return "🎯利確(+5%/7日以内)"
+        if pl <= -8:
+            return "🛑損切り(-8%/7日以内)"
+        return "✅継続"
+    if pl >= 3:
+        return "🎯利確(+3%/14日以内)"
+    if pl <= -5:
+        return "🛑損切り(-5%/14日以内)"
     return "✅継続"
 
 
@@ -154,14 +142,23 @@ def main():
     blocks = [f"**🧭 {sess} 株教授デイリー（判断支援） {jst:%Y-%m-%d %H:%M}**\n"
               f"※買いシグナルではなく判断材料。最終判断はあなたのニュース・テーマ＋規律で。資金の土台は指数(買い持ち)。"]
 
-    # 📊 日経平均＋ニュース
     ib = index_block()
     if ib:
         blocks.append(f"\n__📊 日経平均__ {yen(ib['last'])}（前日比{ib['chg']:+.1f}%）／25日線{'上' if ib['last']>ib['ma25'] else '下'}・75日線{'上' if ib['last']>ib['ma75'] else '下'}→**{ib['trend']}**")
+        if ib['last'] < ib['ma75'] and ib['last'] < ib['ma25']:
+            blocks.append("　🚨 **退避ゲート点灯**：日経が25日線・75日線とも下回り下落基調。新規は静観/退避を検討（暴落局面で反発買いは厳禁＝過去検証の最悪パターン）。")
+        else:
+            blocks.append("　🟢 退避ゲート：未点灯（地合いは崩れていない）。")
     n = news_one("日経平均 株価")
-    if n: blocks.append(f"　📰 {n}")
+    if n:
+        blocks.append(f"　📰 {n}")
 
-    # 🔥 セクター強度（1ヶ月騰落の平均）
+    blocks.append("\n__⚠️ マクロ・リスク（全体に効くニュース／静観判断の材料）__")
+    for q in ["米国株式市場 ダウ ナスダック", "為替 ドル円 相場"]:
+        mn = news_one(q)
+        if mn:
+            blocks.append(f"　📰 {mn}")
+
     bysec = {}
     for s in stocks:
         bysec.setdefault(s["sec"], []).append(s["chg_1m_pct"])
@@ -173,7 +170,6 @@ def main():
         blocks.append("　" + " ／ ".join(f"{i+1}.{sec} {avg:+.1f}%" for i, (sec, avg, _) in enumerate(top)))
     sec_rank = {sec: i for i, (sec, _, _) in enumerate(strength)}
 
-    # 👀 注目候補（テーマ強度順）＋ニュース
     cands = []
     for s in stocks:
         ct = candidate_type(s)
@@ -189,14 +185,13 @@ def main():
             hot_mark = "★強" if s["secrank"] < 5 else ""
             blocks.append(f"・**{s['name']}({s['code']})** [{s['sec']}{hot_mark}] {tag} "
                           f"RSI{s['rsi14']}/25線{s['dev_ma25_pct']:+.1f}%/出来高{(s.get('vol_ratio_pct') or 0):.0f}%")
-        # 上位3候補のニュース
         for s in cands[:3]:
             nn = news_one(s["name"] + " 株")
-            if nn: blocks.append(f"　📰 {s['name']}: {nn}")
+            if nn:
+                blocks.append(f"　📰 {s['name']}: {nn}")
     else:
         blocks.append("\n__👀 注目候補__ 本日は条件を満たす候補なし（静観）。")
 
-    # ⚠️ 過熱
     hot = [s for s in stocks if candidate_type(s) == "hot"]
     if hot:
         hot.sort(key=lambda x: -x["dev_ma25_pct"])
@@ -204,7 +199,6 @@ def main():
         for s in hot[:5]:
             blocks.append(f"・{s['name']}({s['code']}) RSI{s['rsi14']}/25線+{s['dev_ma25_pct']:.0f}%/月{s['chg_1m_pct']:+.0f}%")
 
-    # 🔵 保有の出口アラート
     if HOLDINGS_RAW:
         by = {s["code"]: s for s in stocks}
         today = jst.date()
