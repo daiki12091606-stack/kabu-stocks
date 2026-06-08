@@ -61,6 +61,38 @@ def index_block():
         return None
 
 
+def overnight():
+    """夜間の米国指数＋日経先物（寄り前の手がかり）。値は前日比%。"""
+    if yf is None:
+        return None
+    def one(tk):
+        try:
+            df = yf.download(tk, period="5d", interval="1d", progress=False, auto_adjust=True)
+            if hasattr(df.columns, "get_level_values"):
+                try:
+                    df.columns = df.columns.get_level_values(0)
+                except Exception:
+                    pass
+            c = df["Close"].dropna()
+            if len(c) >= 2:
+                return (float(c.iloc[-1]) / float(c.iloc[-2]) - 1) * 100
+        except Exception:
+            return None
+        return None
+    out = {}
+    for name, tk in [("NYダウ", "^DJI"), ("S&P500", "^GSPC"), ("ナスダック", "^IXIC")]:
+        ch = one(tk)
+        if ch is not None:
+            out[name] = ch
+    for tk in ["NIY=F", "NKD=F"]:
+        if "日経先物" in out:
+            break
+        ch = one(tk)
+        if ch is not None:
+            out["日経先物"] = ch
+    return out
+
+
 def news_one(query):
     try:
         q = urllib.parse.quote(query)
@@ -139,6 +171,20 @@ def main():
     jst = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9)))
     h = jst.hour
     sess = "🌅朝" if h < 9 else ("🕛昼" if h < 14 else "🌆夕")
+
+    # 重複配信ガード：同じ日・同じ時間帯に配信済みならスキップ（予備実行で重複させないため）
+    today_str = jst.strftime("%Y-%m-%d")
+    if os.path.exists("daily_log.csv"):
+        try:
+            import csv as _dc
+            with open("daily_log.csv", encoding="utf-8-sig") as _lf:
+                for _row in _dc.reader(_lf):
+                    if len(_row) >= 2 and _row[0].startswith(today_str) and _row[1] == sess:
+                        print(f"既に{sess}配信済み（{today_str}）。スキップ。")
+                        return
+        except Exception:
+            pass
+
     blocks = [f"**🧭 {sess} 株教授デイリー（判断支援） {jst:%Y-%m-%d %H:%M}**\n"
               f"※買いシグナルではなく判断材料。最終判断はあなたのニュース・テーマ＋規律で。資金の土台は指数(買い持ち)。"]
 
@@ -153,8 +199,16 @@ def main():
     if n:
         blocks.append(f"　📰 {n}")
 
+    ov = overnight()
+    if ov:
+        blocks.append("\n__🌃 夜間・先行指標（寄り前の手がかり）__")
+        blocks.append("　" + " ／ ".join(f"{k} {v:+.1f}%" for k, v in ov.items()))
+        warn = [k for k, v in ov.items() if v <= -1.5]
+        if warn:
+            blocks.append("　⚠️ 夜間に大幅安（" + "・".join(warn) + "）→ 寄り付き下落の可能性。朝の新規は慎重に/静観検討。")
+
     blocks.append("\n__⚠️ マクロ・リスク（全体に効くニュース／静観判断の材料）__")
-    for q in ["米国株式市場 ダウ ナスダック", "為替 ドル円 相場"]:
+    for q in ["米国株式市場 ダウ ナスダック", "為替 ドル円 相場", "今週 米雇用統計 FOMC 経済指標"]:
         mn = news_one(q)
         if mn:
             blocks.append(f"　📰 {mn}")
@@ -227,6 +281,22 @@ def main():
             blocks.append("・保有データなし")
 
     blocks.append(f"\nデータ:{data.get('generated_at_jst','')} ／ これは判断材料であり投資助言ではありません。最終判断はご自身で。")
+
+    # 日次ログ（予報 vs 実際 を後で振り返るため daily_log.csv に追記）
+    try:
+        import csv as _csv
+        gate = "点灯" if (ib and ib["last"] < ib["ma75"] and ib["last"] < ib["ma25"]) else "未点灯"
+        newfile = not os.path.exists("daily_log.csv")
+        with open("daily_log.csv", "a", encoding="utf-8-sig", newline="") as lf:
+            w = _csv.writer(lf)
+            if newfile:
+                w.writerow(["jst", "session", "nikkei", "nikkei_chg%", "retreat_gate", "n_candidates", "top3", "n_hot"])
+            w.writerow([jst.strftime("%Y-%m-%d %H:%M"), sess,
+                        round(ib["last"]) if ib else "", round(ib["chg"], 2) if ib else "",
+                        gate, len(cands), ";".join(s["code"] for s in cands[:3]), len(hot)])
+    except Exception as e:
+        print("log error:", e)
+
     send_blocks(blocks)
 
 
