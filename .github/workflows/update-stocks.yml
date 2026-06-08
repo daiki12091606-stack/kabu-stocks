@@ -3,9 +3,14 @@ name: update-stocks
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 20 * * 0-4"   # JST 平日 朝 5:00 （UTC前日20:00）
-    - cron: "35 2  * * 1-5"  # JST 平日 昼 11:35
-    - cron: "0 8  * * 1-5"   # JST 平日 夜 17:00
+    # 各時間帯を「本番＋予備」の2回スケジュール（cron取りこぼし対策）。
+    # 同じ日・同じ時間帯はnotify側の重複ガードで2通目をスキップするため、両方走っても1通だけ届く。
+    - cron: "0 20 * * 0-4"    # JST 朝 5:00（本番）
+    - cron: "30 20 * * 0-4"   # JST 朝 5:30（予備）
+    - cron: "35 2 * * 1-5"    # JST 昼 11:35（本番）
+    - cron: "0 3 * * 1-5"     # JST 昼 12:00（予備）
+    - cron: "0 8 * * 1-5"     # JST 夜 17:00（本番）
+    - cron: "30 8 * * 1-5"    # JST 夜 17:30（予備）
 
 permissions:
   contents: write
@@ -31,6 +36,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add stocks.json sectors.json
+          git add stocks.json sectors.json daily_log.csv
           git diff --staged --quiet || git commit -m "update data [auto]"
           git push
