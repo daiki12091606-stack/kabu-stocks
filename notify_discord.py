@@ -195,9 +195,6 @@ def main():
             blocks.append("　🚨 **退避ゲート点灯**：日経が25日線・75日線とも下回り下落基調。新規は静観/退避を検討（暴落局面で反発買いは厳禁＝過去検証の最悪パターン）。")
         else:
             blocks.append("　🟢 退避ゲート：未点灯（地合いは崩れていない）。")
-    n = news_one("日経平均 株価")
-    if n:
-        blocks.append(f"　📰 {n}")
 
     ov = overnight()
     if ov:
@@ -206,12 +203,6 @@ def main():
         warn = [k for k, v in ov.items() if v <= -1.5]
         if warn:
             blocks.append("　⚠️ 夜間に大幅安（" + "・".join(warn) + "）→ 寄り付き下落の可能性。朝の新規は慎重に/静観検討。")
-
-    blocks.append("\n__⚠️ マクロ・リスク（全体に効くニュース／静観判断の材料）__")
-    for q in ["米国株式市場 ダウ ナスダック", "為替 ドル円 相場", "今週 米雇用統計 FOMC 経済指標"]:
-        mn = news_one(q)
-        if mn:
-            blocks.append(f"　📰 {mn}")
 
     bysec = {}
     for s in stocks:
@@ -241,10 +232,6 @@ def main():
             blocks.append(f"・**{s['name']}({s['code']})** [{s['sec']}{hot_mark}] {tag} "
                           f"RSI{s['rsi14']}/25線{s['dev_ma25_pct']:+.1f}%/出来高{(s.get('vol_ratio_pct') or 0):.0f}%\n"
                           f"　買値メド {yen(last)}（現値近辺）→ 目標売値 {yen(last*1.05)}(+5%) / 損切 {yen(last*0.92)}(-8%)")
-        for s in cands[:3]:
-            nn = news_one(s["name"] + " 株")
-            if nn:
-                blocks.append(f"　📰 {s['name']}: {nn}")
     else:
         blocks.append("\n__👀 注目候補__ 本日は条件を満たす候補なし（静観）。")
 
