@@ -1,5 +1,5 @@
 {
-  "generated_at_jst": "2026-06-10 15:51:04",
+  "generated_at_jst": "2026-06-10 15:56:09",
   "count": 206,
   "stocks": [
     {
@@ -198,17 +198,7 @@
       "code": "6857",
       "name": "Advantest",
       "sector": "日経225",
-      "last": 25235.0,
-      "rsi14": 44.1,
-      "ma5": 26347.0,
-      "ma25": 27034.6,
-      "ma75": 25861.5,
-      "ma25_trend": "down",
-      "dev_ma25_pct": -6.7,
-      "chg_1m_pct": -12.1,
-      "vol_ratio_pct": 97.0,
-      "dev_52w_high_pct": -19.9,
-      "status": "ok"
+      "status": "no_data"
     },
     {
       "code": "9202",
