@@ -1,21 +1,27 @@
 name: update-stocks
 
 
+
+
 on:
   workflow_dispatch:
   schedule:
     # データ更新のみ（Discord通知は廃止＝朝レポートはアプリ4:17に一本化）。
     # stocks.json を1日数回更新し、アプリの朝レポートが読み込む。
-    - cron: "0 20 * * 0-4"→ Runs at 20:00, Sunday through Thursday    # JST 朝 5:00
-    - cron: "30 20 * * 0-4"→ Runs at 20:30, Sunday through Thursday   # JST 朝 5:30
-    - cron: "35 2 * * 1-5"→ Runs at 02:35, Monday through Friday    # JST 昼 11:35
-    - cron: "0 3 * * 1-5"→ Runs at 03:00, Monday through Friday     # JST 昼 12:00
-    - cron: "0 8 * * 1-5"→ Runs at 08:00, Monday through Friday     # JST 夜 17:00
-    - cron: "30 8 * * 1-5"→ Runs at 08:30, Monday through Friday    # JST 夜 17:30
+    - cron: "0 20 * * 0-4" # JST 朝 5:00
+    - cron: "30 20 * * 0-4" # JST 朝 5:30
+    - cron: "35 2 * * 1-5" # JST 昼 11:35
+    - cron: "0 3 * * 1-5" # JST 昼 12:00
+    - cron: "0 8 * * 1-5" # JST 夜 17:00
+    - cron: "30 8 * * 1-5" # JST 夜 17:30
+
+
 
 
 permissions:
   contents: write
+
+
 
 
 jobs:
