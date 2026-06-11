@@ -1,5 +1,5 @@
 {
-  "generated_at_jst": "2026-06-11 16:20:56",
+  "generated_at_jst": "2026-06-11 21:04:33",
   "count": 206,
   "stocks": [
     {
@@ -438,17 +438,7 @@
       "code": "8306",
       "name": "Mitsubishi UFJ Financial Group",
       "sector": "日経225",
-      "last": 3141.0,
-      "rsi14": 55.5,
-      "ma5": 3178.2,
-      "ma25": 3039.1,
-      "ma75": 2849.6,
-      "ma25_trend": "up",
-      "dev_ma25_pct": 3.4,
-      "chg_1m_pct": 7.3,
-      "vol_ratio_pct": 108.0,
-      "dev_52w_high_pct": -2.4,
-      "status": "ok"
+      "status": "no_data"
     },
     {
       "code": "8411",
