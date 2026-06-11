@@ -1,13 +1,8 @@
 name: update-stocks
 
-
-
-
 on:
   workflow_dispatch:
   schedule:
-    # データ更新のみ（Discord通知は廃止＝朝レポートはアプリ4:17に一本化）。
-    # stocks.json を1日数回更新し、アプリの朝レポートが読み込む。
     - cron: "0 20 * * 0-4" # JST 朝 5:00
     - cron: "30 20 * * 0-4" # JST 朝 5:30
     - cron: "35 2 * * 1-5" # JST 昼 11:35
@@ -15,14 +10,8 @@ on:
     - cron: "0 8 * * 1-5" # JST 夜 17:00
     - cron: "30 8 * * 1-5" # JST 夜 17:30
 
-
-
-
 permissions:
   contents: write
-
-
-
 
 jobs:
   build:
@@ -37,10 +26,10 @@ jobs:
       - name: Fetch stocks
         run: python fetch_stocks.py
       - name: Notify Discord
-  env:
-    DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-  run: python notify_discord.py
-- name: Commit data
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: python notify_discord.py
+      - name: Commit data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
