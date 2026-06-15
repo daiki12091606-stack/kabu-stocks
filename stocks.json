@@ -1,5 +1,5 @@
 {
-  "generated_at_jst": "2026-06-15 23:29:06",
+  "generated_at_jst": "2026-06-15 23:41:46",
   "count": 206,
   "stocks": [
     {
@@ -150,17 +150,7 @@
       "code": "5401",
       "name": "日本製鉄",
       "sector": "鉄鋼・素材",
-      "last": 574.2,
-      "rsi14": 57.0,
-      "ma5": 548.8,
-      "ma25": 551.4,
-      "ma75": 576.8,
-      "ma25_trend": "down",
-      "dev_ma25_pct": 4.1,
-      "chg_1m_pct": 2.6,
-      "vol_ratio_pct": 92.0,
-      "dev_52w_high_pct": -16.0,
-      "status": "ok"
+      "status": "no_data"
     },
     {
       "code": "3402",
