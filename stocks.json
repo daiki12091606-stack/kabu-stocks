@@ -1,5 +1,5 @@
 {
-  "generated_at_jst": "2026-07-15 05:54:41",
+  "generated_at_jst": "2026-07-15 06:29:20",
   "count": 206,
   "stocks": [
     {
@@ -246,7 +246,17 @@
       "code": "7267",
       "name": "Honda Motor",
       "sector": "日経225",
-      "status": "no_data"
+      "last": 1495.0,
+      "rsi14": 64.7,
+      "ma5": 1517.6,
+      "ma25": 1464.7,
+      "ma75": 1373.3,
+      "ma25_trend": "up",
+      "dev_ma25_pct": 2.1,
+      "chg_1m_pct": 6.0,
+      "vol_ratio_pct": 78.0,
+      "dev_52w_high_pct": -9.3,
+      "status": "ok"
     },
     {
       "code": "7202",
