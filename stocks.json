@@ -1,5 +1,5 @@
 {
-  "generated_at_jst": "2026-07-17 05:52:21",
+  "generated_at_jst": "2026-07-17 06:31:01",
   "count": 206,
   "stocks": [
     {
@@ -790,17 +790,7 @@
       "code": "4208",
       "name": "Ube Industries",
       "sector": "日経225",
-      "last": 3273.0,
-      "rsi14": 58.6,
-      "ma5": 3180.2,
-      "ma25": 3175.7,
-      "ma75": 2785.5,
-      "ma25_trend": "up",
-      "dev_ma25_pct": 3.1,
-      "chg_1m_pct": 2.4,
-      "vol_ratio_pct": 102.0,
-      "dev_52w_high_pct": -0.5,
-      "status": "ok"
+      "status": "no_data"
     },
     {
       "code": "1721",
