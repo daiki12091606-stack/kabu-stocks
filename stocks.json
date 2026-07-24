@@ -1,5 +1,5 @@
 {
-  "generated_at_jst": "2026-07-24 19:23:55",
+  "generated_at_jst": "2026-07-24 19:31:40",
   "count": 206,
   "stocks": [
     {
@@ -1126,7 +1126,17 @@
       "code": "6503",
       "name": "Mitsubishi Electric",
       "sector": "日経225",
-      "status": "no_data"
+      "last": 5650.0,
+      "rsi14": 42.0,
+      "ma5": 5597.2,
+      "ma25": 5829.8,
+      "ma75": 5962.8,
+      "ma25_trend": "down",
+      "dev_ma25_pct": -3.1,
+      "chg_1m_pct": -5.5,
+      "vol_ratio_pct": 104.0,
+      "dev_52w_high_pct": -13.9,
+      "status": "ok"
     },
     {
       "code": "6701",
