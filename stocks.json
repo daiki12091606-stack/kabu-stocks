@@ -1,5 +1,5 @@
 {
-  "generated_at_jst": "2026-08-18 05:19:10",
+  "generated_at_jst": "2026-08-18 05:51:23",
   "count": 206,
   "stocks": [
     {
@@ -214,7 +214,17 @@
       "code": "9202",
       "name": "ANA Holdings",
       "sector": "日経225",
-      "status": "no_data"
+      "last": 3126.0,
+      "rsi14": 64.2,
+      "ma5": 3107.4,
+      "ma25": 3078.1,
+      "ma75": 2944.8,
+      "ma25_trend": "down",
+      "dev_ma25_pct": 1.6,
+      "chg_1m_pct": 2.7,
+      "vol_ratio_pct": 83.0,
+      "dev_52w_high_pct": -6.1,
+      "status": "ok"
     },
     {
       "code": "9201",
