@@ -1,5 +1,5 @@
 {
-  "generated_at_jst": "2026-08-21 18:05:13",
+  "generated_at_jst": "2026-08-24 05:15:23",
   "count": 206,
   "stocks": [
     {
@@ -726,17 +726,7 @@
       "code": "4911",
       "name": "Shiseido",
       "sector": "日経225",
-      "last": 3696.0,
-      "rsi14": 74.2,
-      "ma5": 3561.4,
-      "ma25": 3347.4,
-      "ma75": 2931.1,
-      "ma25_trend": "up",
-      "dev_ma25_pct": 10.4,
-      "chg_1m_pct": 21.6,
-      "vol_ratio_pct": 68.0,
-      "dev_52w_high_pct": 0.0,
-      "status": "ok"
+      "status": "no_data"
     },
     {
       "code": "4005",
