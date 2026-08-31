@@ -1,5 +1,5 @@
 {
-  "generated_at_jst": "2026-09-01 08:33:59",
+  "generated_at_jst": "2026-09-01 08:57:51",
   "count": 206,
   "stocks": [
     {
@@ -678,7 +678,17 @@
       "code": "6988",
       "name": "Nitto Denko",
       "sector": "日経225",
-      "status": "no_data"
+      "last": 3471.0,
+      "rsi14": 45.8,
+      "ma5": 3414.4,
+      "ma25": 3446.6,
+      "ma75": 3236.2,
+      "ma25_trend": "up",
+      "dev_ma25_pct": 0.7,
+      "chg_1m_pct": -2.2,
+      "vol_ratio_pct": 72.0,
+      "dev_52w_high_pct": -9.3,
+      "status": "ok"
     },
     {
       "code": "4004",
