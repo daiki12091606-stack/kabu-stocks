@@ -1,5 +1,5 @@
 {
-  "generated_at_jst": "2026-09-01 22:20:17",
+  "generated_at_jst": "2026-09-01 22:34:36",
   "count": 206,
   "stocks": [
     {
@@ -422,7 +422,17 @@
       "code": "8354",
       "name": "Fukuoka Financial Group",
       "sector": "日経225",
-      "status": "no_data"
+      "last": 7941.0,
+      "rsi14": 68.4,
+      "ma5": 7826.6,
+      "ma25": 7588.6,
+      "ma75": 7183.6,
+      "ma25_trend": "up",
+      "dev_ma25_pct": 4.6,
+      "chg_1m_pct": 7.9,
+      "vol_ratio_pct": 68.0,
+      "dev_52w_high_pct": 0.0,
+      "status": "ok"
     },
     {
       "code": "8306",
