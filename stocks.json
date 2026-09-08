@@ -1,5 +1,5 @@
 {
-  "generated_at_jst": "2026-09-08 16:23:35",
+  "generated_at_jst": "2026-09-08 16:37:41",
   "count": 206,
   "stocks": [
     {
@@ -566,7 +566,17 @@
       "code": "4061",
       "name": "Denka",
       "sector": "日経225",
-      "status": "no_data"
+      "last": 3219.0,
+      "rsi14": 41.7,
+      "ma5": 3248.0,
+      "ma25": 3439.8,
+      "ma75": 3818.0,
+      "ma25_trend": "down",
+      "dev_ma25_pct": -6.4,
+      "chg_1m_pct": -10.0,
+      "vol_ratio_pct": 80.0,
+      "dev_52w_high_pct": -29.0,
+      "status": "ok"
     },
     {
       "code": "4901",
