@@ -1,5 +1,5 @@
 {
-  "generated_at_jst": "2026-09-11 07:11:32",
+  "generated_at_jst": "2026-09-11 07:41:40",
   "count": 206,
   "stocks": [
     {
@@ -358,7 +358,17 @@
       "code": "7203",
       "name": "Toyota Motor",
       "sector": "日経225",
-      "status": "no_data"
+      "last": 2994.0,
+      "rsi14": 37.8,
+      "ma5": 3022.1,
+      "ma25": 3054.1,
+      "ma75": 2932.9,
+      "ma25_trend": "up",
+      "dev_ma25_pct": -2.0,
+      "chg_1m_pct": -0.2,
+      "vol_ratio_pct": 93.0,
+      "dev_52w_high_pct": -23.0,
+      "status": "ok"
     },
     {
       "code": "7272",
