@@ -1,5 +1,5 @@
 {
-  "generated_at_jst": "2026-09-18 22:02:41",
+  "generated_at_jst": "2026-09-21 07:07:21",
   "count": 206,
   "stocks": [
     {
@@ -1222,7 +1222,17 @@
       "code": "7752",
       "name": "Ricoh",
       "sector": "日経225",
-      "status": "no_data"
+      "last": 1660.5,
+      "rsi14": 45.7,
+      "ma5": 1648.8,
+      "ma25": 1645.7,
+      "ma75": 1557.7,
+      "ma25_trend": "up",
+      "dev_ma25_pct": 0.9,
+      "chg_1m_pct": 3.8,
+      "vol_ratio_pct": 85.0,
+      "dev_52w_high_pct": -4.9,
+      "status": "ok"
     },
     {
       "code": "6963",
