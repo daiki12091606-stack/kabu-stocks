@@ -1,5 +1,5 @@
 {
-  "generated_at_jst": "2026-09-21 07:07:21",
+  "generated_at_jst": "2026-09-21 07:35:14",
   "count": 206,
   "stocks": [
     {
@@ -486,17 +486,7 @@
       "code": "5831",
       "name": "5831",
       "sector": "日経225",
-      "last": 3489.0,
-      "rsi14": 32.1,
-      "ma5": 3514.2,
-      "ma25": 3550.9,
-      "ma75": 3307.5,
-      "ma25_trend": "up",
-      "dev_ma25_pct": -1.7,
-      "chg_1m_pct": 3.2,
-      "vol_ratio_pct": 84.0,
-      "dev_52w_high_pct": -5.4,
-      "status": "ok"
+      "status": "no_data"
     },
     {
       "code": "8316",
