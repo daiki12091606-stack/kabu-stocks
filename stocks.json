@@ -1,5 +1,5 @@
 {
-  "generated_at_jst": "2026-09-25 07:56:29",
+  "generated_at_jst": "2026-09-25 08:17:02",
   "count": 206,
   "stocks": [
     {
@@ -710,7 +710,17 @@
       "code": "4063",
       "name": "Shin-Etsu Chemical",
       "sector": "日経225",
-      "status": "no_data"
+      "last": 5903.0,
+      "rsi14": 46.0,
+      "ma5": 5804.4,
+      "ma25": 5903.1,
+      "ma75": 6530.1,
+      "ma25_trend": "down",
+      "dev_ma25_pct": -0.0,
+      "chg_1m_pct": -2.4,
+      "vol_ratio_pct": 110.0,
+      "dev_52w_high_pct": -24.4,
+      "status": "ok"
     },
     {
       "code": "4911",
