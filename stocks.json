@@ -1,5 +1,5 @@
 {
-  "generated_at_jst": "2026-09-29 01:37:59",
+  "generated_at_jst": "2026-09-29 01:51:07",
   "count": 206,
   "stocks": [
     {
@@ -182,7 +182,17 @@
       "code": "3036",
       "name": "アルコニックス",
       "sector": "鉄鋼・素材",
-      "status": "no_data"
+      "last": 3460.0,
+      "rsi14": 60.0,
+      "ma5": 3379.0,
+      "ma25": 3375.8,
+      "ma75": 2903.2,
+      "ma25_trend": "down",
+      "dev_ma25_pct": 2.5,
+      "chg_1m_pct": -0.1,
+      "vol_ratio_pct": 99.0,
+      "dev_52w_high_pct": -7.9,
+      "status": "ok"
     },
     {
       "code": "6857",
