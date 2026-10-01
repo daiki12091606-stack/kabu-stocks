@@ -1,5 +1,5 @@
 {
-  "generated_at_jst": "2026-10-02 08:38:04",
+  "generated_at_jst": "2026-10-02 08:59:52",
   "count": 206,
   "stocks": [
     {
@@ -831,7 +831,7 @@
       "dev_ma25_pct": -2.3,
       "chg_1m_pct": -4.1,
       "vol_ratio_pct": 132.0,
-      "dev_52w_high_pct": -19.2,
+      "dev_52w_high_pct": -17.5,
       "status": "ok"
     },
     {
@@ -2303,7 +2303,7 @@
       "dev_ma25_pct": -0.2,
       "chg_1m_pct": -2.5,
       "vol_ratio_pct": 82.0,
-      "dev_52w_high_pct": -15.4,
+      "dev_52w_high_pct": -14.8,
       "status": "ok"
     },
     {
