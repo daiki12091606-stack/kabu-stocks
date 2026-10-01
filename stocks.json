@@ -1,5 +1,5 @@
 {
-  "generated_at_jst": "2026-10-01 08:23:02",
+  "generated_at_jst": "2026-10-01 09:01:09",
   "count": 206,
   "stocks": [
     {
@@ -695,12 +695,12 @@
       "name": "Resonac",
       "sector": "日経225",
       "last": 14985.0,
-      "rsi14": 40.8,
-      "ma5": 14631.7,
-      "ma25": 15172.3,
-      "ma75": 15865.2,
+      "rsi14": 40.3,
+      "ma5": 14529.4,
+      "ma25": 15151.9,
+      "ma75": 15858.4,
       "ma25_trend": "down",
-      "dev_ma25_pct": -1.2,
+      "dev_ma25_pct": -1.1,
       "chg_1m_pct": -8.6,
       "vol_ratio_pct": 108.0,
       "dev_52w_high_pct": -23.0,
