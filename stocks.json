@@ -1,5 +1,5 @@
 {
-  "generated_at_jst": "2026-10-20 17:04:20",
+  "generated_at_jst": "2026-10-20 22:27:31",
   "count": 206,
   "stocks": [
     {
@@ -54,17 +54,7 @@
       "code": "7011",
       "name": "三菱重工業",
       "sector": "重工・防衛",
-      "last": 3685.0,
-      "rsi14": 43.8,
-      "ma5": 3718.0,
-      "ma25": 3775.3,
-      "ma75": 3855.4,
-      "ma25_trend": "down",
-      "dev_ma25_pct": -2.4,
-      "chg_1m_pct": -0.1,
-      "vol_ratio_pct": 96.0,
-      "dev_52w_high_pct": -28.6,
-      "status": "ok"
+      "status": "no_data"
     },
     {
       "code": "7013",
