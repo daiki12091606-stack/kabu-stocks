@@ -1,5 +1,5 @@
 {
-  "generated_at_jst": "2026-10-23 17:08:18",
+  "generated_at_jst": "2026-10-23 22:14:31",
   "count": 206,
   "stocks": [
     {
@@ -310,17 +310,7 @@
       "code": "7201",
       "name": "Nissan",
       "sector": "日経225",
-      "last": 268.7,
-      "rsi14": 36.4,
-      "ma5": 274.9,
-      "ma25": 289.7,
-      "ma75": 313.2,
-      "ma25_trend": "down",
-      "dev_ma25_pct": -7.3,
-      "chg_1m_pct": -14.0,
-      "vol_ratio_pct": 93.0,
-      "dev_52w_high_pct": -42.1,
-      "status": "ok"
+      "status": "no_data"
     },
     {
       "code": "7270",
