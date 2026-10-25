@@ -1,5 +1,5 @@
 {
-  "generated_at_jst": "2026-10-23 22:39:04",
+  "generated_at_jst": "2026-10-26 07:14:09",
   "count": 206,
   "stocks": [
     {
@@ -1001,13 +1001,13 @@
       "last": 5587.0,
       "rsi14": 33.4,
       "ma5": 5753.6,
-      "ma25": 5960.0,
-      "ma75": 6270.4,
-      "ma25_trend": "down",
-      "dev_ma25_pct": -6.3,
-      "chg_1m_pct": -4.5,
+      "ma25": 5939.9,
+      "ma75": 6211.4,
+      "ma25_trend": "up",
+      "dev_ma25_pct": -5.9,
+      "chg_1m_pct": -3.3,
       "vol_ratio_pct": 105.0,
-      "dev_52w_high_pct": -33.7,
+      "dev_52w_high_pct": -32.9,
       "status": "ok"
     },
     {
