@@ -1,5 +1,5 @@
 {
-  "generated_at_jst": "2026-10-27 08:31:02",
+  "generated_at_jst": "2026-10-27 08:57:58",
   "count": 206,
   "stocks": [
     {
@@ -70,17 +70,7 @@
       "code": "7013",
       "name": "IHI",
       "sector": "重工・防衛",
-      "last": 2392.5,
-      "rsi14": 29.7,
-      "ma5": 2454.3,
-      "ma25": 2632.1,
-      "ma75": 2724.8,
-      "ma25_trend": "down",
-      "dev_ma25_pct": -9.1,
-      "chg_1m_pct": -14.5,
-      "vol_ratio_pct": 97.0,
-      "dev_52w_high_pct": -46.5,
-      "status": "ok"
+      "status": "no_data"
     },
     {
       "code": "6141",
