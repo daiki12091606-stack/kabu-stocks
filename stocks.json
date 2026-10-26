@@ -1,5 +1,5 @@
 {
-  "generated_at_jst": "2026-10-26 17:02:36",
+  "generated_at_jst": "2026-10-26 17:20:08",
   "count": 206,
   "stocks": [
     {
@@ -454,17 +454,7 @@
       "code": "8411",
       "name": "Mizuho Financial Group",
       "sector": "日経225",
-      "last": 7429.0,
-      "rsi14": 26.7,
-      "ma5": 7622.6,
-      "ma25": 8266.4,
-      "ma75": 8318.3,
-      "ma25_trend": "down",
-      "dev_ma25_pct": -10.1,
-      "chg_1m_pct": -9.5,
-      "vol_ratio_pct": 107.0,
-      "dev_52w_high_pct": -16.1,
-      "status": "ok"
+      "status": "no_data"
     },
     {
       "code": "8308",
