@@ -1,5 +1,5 @@
 {
-  "generated_at_jst": "2026-10-29 17:48:48",
+  "generated_at_jst": "2026-10-29 18:10:02",
   "count": 206,
   "stocks": [
     {
@@ -262,17 +262,7 @@
       "code": "7202",
       "name": "Isuzu Motors",
       "sector": "日経225",
-      "last": 2064.0,
-      "rsi14": 38.3,
-      "ma5": 2093.3,
-      "ma25": 2104.6,
-      "ma75": 2183.7,
-      "ma25_trend": "down",
-      "dev_ma25_pct": -1.9,
-      "chg_1m_pct": -0.8,
-      "vol_ratio_pct": 91.0,
-      "dev_52w_high_pct": -26.3,
-      "status": "ok"
+      "status": "no_data"
     },
     {
       "code": "7261",
