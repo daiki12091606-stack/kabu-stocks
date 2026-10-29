@@ -1,5 +1,5 @@
 {
-  "generated_at_jst": "2026-10-29 08:48:27",
+  "generated_at_jst": "2026-10-29 09:07:43",
   "count": 206,
   "stocks": [
     {
@@ -134,7 +134,17 @@
       "code": "6981",
       "name": "村田製作所",
       "sector": "半導体",
-      "status": "no_data"
+      "last": 6701.0,
+      "rsi14": 21.8,
+      "ma5": 6395.2,
+      "ma25": 7511.7,
+      "ma75": 7596.3,
+      "ma25_trend": "down",
+      "dev_ma25_pct": -10.8,
+      "chg_1m_pct": -15.9,
+      "vol_ratio_pct": 85.0,
+      "dev_52w_high_pct": -45.1,
+      "status": "ok"
     },
     {
       "code": "5401",
@@ -1141,7 +1151,7 @@
       "dev_ma25_pct": 3.7,
       "chg_1m_pct": 11.2,
       "vol_ratio_pct": 123.0,
-      "dev_52w_high_pct": -5.9,
+      "dev_52w_high_pct": -4.7,
       "status": "ok"
     },
     {
@@ -3093,7 +3103,7 @@
       "dev_ma25_pct": 0.5,
       "chg_1m_pct": 2.8,
       "vol_ratio_pct": 55.0,
-      "dev_52w_high_pct": -24.8,
+      "dev_52w_high_pct": -22.4,
       "status": "ok"
     },
     {
