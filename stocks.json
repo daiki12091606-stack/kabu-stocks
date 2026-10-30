@@ -1,5 +1,5 @@
 {
-  "generated_at_jst": "2026-10-30 18:21:06",
+  "generated_at_jst": "2026-10-30 23:56:28",
   "count": 206,
   "stocks": [
     {
@@ -294,7 +294,17 @@
       "code": "7211",
       "name": "Mitsubishi Motors",
       "sector": "日経225",
-      "status": "no_data"
+      "last": 343.9,
+      "rsi14": 39.4,
+      "ma5": 343.7,
+      "ma25": 349.0,
+      "ma75": 356.4,
+      "ma25_trend": "down",
+      "dev_ma25_pct": -1.5,
+      "chg_1m_pct": -2.1,
+      "vol_ratio_pct": 97.0,
+      "dev_52w_high_pct": -22.7,
+      "status": "ok"
     },
     {
       "code": "7201",
