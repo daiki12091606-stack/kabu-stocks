@@ -1,5 +1,5 @@
 {
-  "generated_at_jst": "2026-11-14 01:00:25",
+  "generated_at_jst": "2026-11-14 01:35:45",
   "count": 206,
   "stocks": [
     {
@@ -86,7 +86,17 @@
       "code": "6141",
       "name": "DMG森精機",
       "sector": "工作機械",
-      "status": "no_data"
+      "last": 2604.5,
+      "rsi14": 43.0,
+      "ma5": 2623.0,
+      "ma25": 2715.1,
+      "ma75": 3002.5,
+      "ma25_trend": "down",
+      "dev_ma25_pct": -4.1,
+      "chg_1m_pct": -8.1,
+      "vol_ratio_pct": 109.0,
+      "dev_52w_high_pct": -33.3,
+      "status": "ok"
     },
     {
       "code": "6157",
