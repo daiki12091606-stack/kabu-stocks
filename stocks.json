@@ -1,5 +1,5 @@
 {
-  "generated_at_jst": "2026-11-16 08:42:03",
+  "generated_at_jst": "2026-11-16 09:06:14",
   "count": 206,
   "stocks": [
     {
@@ -335,7 +335,7 @@
       "dev_ma25_pct": 4.6,
       "chg_1m_pct": 7.9,
       "vol_ratio_pct": 164.0,
-      "dev_52w_high_pct": -7.7,
+      "dev_52w_high_pct": -5.6,
       "status": "ok"
     },
     {
@@ -879,7 +879,7 @@
       "dev_ma25_pct": 4.9,
       "chg_1m_pct": 5.0,
       "vol_ratio_pct": 133.0,
-      "dev_52w_high_pct": -28.3,
+      "dev_52w_high_pct": -28.1,
       "status": "ok"
     },
     {
@@ -2847,7 +2847,7 @@
       "dev_ma25_pct": 4.4,
       "chg_1m_pct": 9.8,
       "vol_ratio_pct": 81.0,
-      "dev_52w_high_pct": -4.9,
+      "dev_52w_high_pct": -3.0,
       "status": "ok"
     },
     {
@@ -3279,7 +3279,7 @@
       "dev_ma25_pct": 4.7,
       "chg_1m_pct": 7.2,
       "vol_ratio_pct": 114.0,
-      "dev_52w_high_pct": -16.0,
+      "dev_52w_high_pct": -15.2,
       "status": "ok"
     },
     {
