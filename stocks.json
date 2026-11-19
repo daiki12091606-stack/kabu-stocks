@@ -1,5 +1,5 @@
 {
-  "generated_at_jst": "2026-11-19 19:40:26",
+  "generated_at_jst": "2026-11-19 19:58:25",
   "count": 206,
   "stocks": [
     {
@@ -54,17 +54,7 @@
       "code": "7011",
       "name": "三菱重工業",
       "sector": "重工・防衛",
-      "last": 2879.0,
-      "rsi14": 22.8,
-      "ma5": 2890.7,
-      "ma25": 3316.6,
-      "ma75": 3694.2,
-      "ma25_trend": "down",
-      "dev_ma25_pct": -13.2,
-      "chg_1m_pct": -21.9,
-      "vol_ratio_pct": 111.0,
-      "dev_52w_high_pct": -44.2,
-      "status": "ok"
+      "status": "no_data"
     },
     {
       "code": "7013",
@@ -262,7 +252,17 @@
       "code": "7202",
       "name": "Isuzu Motors",
       "sector": "日経225",
-      "status": "no_data"
+      "last": 2140.0,
+      "rsi14": 56.4,
+      "ma5": 2211.4,
+      "ma25": 2142.6,
+      "ma75": 2159.3,
+      "ma25_trend": "up",
+      "dev_ma25_pct": -0.1,
+      "chg_1m_pct": 0.7,
+      "vol_ratio_pct": 93.0,
+      "dev_52w_high_pct": -23.5,
+      "status": "ok"
     },
     {
       "code": "7261",
