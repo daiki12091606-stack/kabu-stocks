@@ -1,5 +1,5 @@
 {
-  "generated_at_jst": "2026-11-21 01:51:00",
+  "generated_at_jst": "2026-11-21 02:03:45",
   "count": 206,
   "stocks": [
     {
@@ -470,7 +470,17 @@
       "code": "8308",
       "name": "Resona Holdings",
       "sector": "日経225",
-      "status": "no_data"
+      "last": 2083.0,
+      "rsi14": 34.9,
+      "ma5": 2175.4,
+      "ma25": 2225.7,
+      "ma75": 2357.1,
+      "ma25_trend": "down",
+      "dev_ma25_pct": -6.4,
+      "chg_1m_pct": -5.6,
+      "vol_ratio_pct": 101.0,
+      "dev_52w_high_pct": -20.2,
+      "status": "ok"
     },
     {
       "code": "5831",
